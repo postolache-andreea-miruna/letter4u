@@ -1,0 +1,145 @@
+/* Import font Patrick Hand, suport complet pentru diacritice românești */
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Patrick Hand', cursive;
+    background: mistyrose;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container plic */
+.letter-container {
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    line-height: 1.2;
+}
+.heart {
+  --c: rgb(225, 50, 50);
+  width: 200px;
+  aspect-ratio: 1;
+  background:
+   /* 1 */ radial-gradient(circle at 60% 65%,var(--c) 64%,#0000 65%) top left/50% 50%,
+   /* 2 */ radial-gradient(circle at 40% 65%,var(--c) 64%,#0000 65%) top right/50% 50%,
+   /* 3 */ conic-gradient(from -45deg at 50% 85.5%,var(--c) 90deg,#0000 0) bottom/100% 50%;
+  background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5; 
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease; /* pentru animație smooth */
+}
+
+.heart:hover {
+    --c:crimson; /* schimbă culoarea la hover */
+}
+/* Plicul */
+.envelope {
+    width: 100%;
+    height: 100%;
+    background: #e78595d5;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.5s ease;
+}
+
+.envelope::before {
+    content: '';    
+    border-radius: 12px;
+    position: absolute;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 100px solid #ed8193;
+    z-index: 2;
+    
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+
+/* Scrisoarea */
+.letter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    max-width: 600px;
+    height: 80%;
+    background: #fff8e7;
+    color: #333;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    overflow-y: auto;
+    z-index: 10;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* Buton închidere */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: #d35400;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.close-btn:hover {
+    background: #e67e22;
+}
+
+/* Scrollbar frumos */
+.letter::-webkit-scrollbar {
+    width: 8px;
+}
+
+.letter::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+.letter::-webkit-scrollbar-thumb {
+    background: #d35400;
+    border-radius: 4px;
+}
+
+h2 {
+    margin-top: 0;
+    color: #d35400;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #181718;
+    font-size: 20px;
+}
+
+.press-text {
+    color: white;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 14px;
+    text-align: center;
+    pointer-events: none; 
+    line-height: 1.2;
+}
